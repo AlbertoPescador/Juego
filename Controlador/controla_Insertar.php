@@ -1,6 +1,21 @@
 <?php
     include_once "../Modelo/CampeonDB.php";
 
+    if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
+        $idCampeonAModificar = $_GET["id"];
+    
+        // Obtener el campeón por ID
+        $campeonAModificar = CampeonDB::getById($idCampeonAModificar);
+    
+        if (!$campeonAModificar) {
+            echo "Campeón no encontrado.";
+            exit;
+        }
+    } else {
+        echo "Solicitud no válida.";
+        exit;
+    }
+    
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         //  Obtenemos los datos del formulario
         $nombre = $_POST["nombre"];
