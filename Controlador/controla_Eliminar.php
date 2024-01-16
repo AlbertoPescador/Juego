@@ -1,5 +1,5 @@
 <?php
-include_once "../Modelo/CampeonDB.php";
+    include_once "../Modelo/CampeonDB.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
         $idCampeonAEliminar = $_GET["id"];
